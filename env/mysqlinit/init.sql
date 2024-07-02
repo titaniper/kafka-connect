@@ -17,7 +17,7 @@ CREATE TABLE tableB (
     age int
 );
 
-INSERT INTO tableA (name, age) VALUES ('name4', 1);
+INSERT INTO tableA (name, age) VALUES ('name4', 6);
 
 SELECT * FROM tableA;
 
