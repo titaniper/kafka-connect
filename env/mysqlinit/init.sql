@@ -10,15 +10,21 @@ CREATE TABLE tableA (
     age int
 );
 
-CREATE TABLE tableA (
+DROP TABLE tableB;
+CREATE TABLE tableB (
     id int auto_increment primary key,
     name varchar(255),
     age int
 );
 
-INSERT INTO tableA (name, age) VALUES ('name1', 1);
+INSERT INTO tableA (name, age) VALUES ('name4', 1);
 
 SELECT * FROM tableA;
+
+
+
+
+SELECT * FROM tableB;
 
 
 

@@ -3,12 +3,12 @@
   "config": {
     "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
     "tasks.max": "1",
-    "connection.url": "jdbc:mysql://mysql:3326/kafka_connect_test?user=root&password=root",
-    "topics": "mysql-A",
+    "connection.url": "jdbc:mysql://mysql:3306/kafka_connect_test?user=root&password=root",
+    "topics": "mysql-tableA",
     "auto.create": "true",
     "auto.evolve": "true",
     "insert.mode": "insert",
-    "table.name.format": "B",
+    "table.name.format": "tableB",
     "pk.mode": "none"
   }
 }
