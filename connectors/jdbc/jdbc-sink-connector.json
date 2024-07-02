@@ -1,0 +1,14 @@
+{
+  "name": "jdbc-sink-connector",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "tasks.max": "1",
+    "connection.url": "jdbc:mysql://mysql:3306/testdb?user=root&password=root",
+    "topics": "mysql-A",
+    "auto.create": "true",
+    "auto.evolve": "true",
+    "insert.mode": "insert",
+    "table.name.format": "B",
+    "pk.mode": "none"
+  }
+}
