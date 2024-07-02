@@ -26,6 +26,7 @@ docker exec -it env-connect-1 confluent-hub install confluentinc/kafka-connect-j
 
 
 
+# JDBC 설치
 
 ```
 docker exec -it env-connect-1 /bin/bash
@@ -36,3 +37,19 @@ confluent-hub install confluentinc/kafka-connect-jdbc:latest --component-dir /et
 
 curl -s http://localhost:8083/connector-plugins | jq .
 ```
+
+# Debezium 설치
+```
+docker exec -it env-connect-1 /bin/bash
+
+mkdir -p /etc/kafka-connect/jars
+
+
+confluent-hub install debezium/debezium-connector-mysql:latest --component-dir /etc/kafka-connect/jars
+
+-- 재시작
+
+curl -s http://localhost:8083/connector-plugins | jq .
+```
+
+
