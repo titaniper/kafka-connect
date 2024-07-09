@@ -17,6 +17,13 @@ CREATE TABLE tableB (
     age int
 );
 
+-- Schema changes?
+CREATE TABLE tableC (
+    id int auto_increment primary key,
+    name varchar(255),
+    age int
+);
+
 INSERT INTO tableA (name, age) VALUES ('name4', 6);
 
 SELECT * FROM tableA;
