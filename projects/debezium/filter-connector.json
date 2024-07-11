@@ -1,0 +1,41 @@
+{
+    "name": "debezium-mysql-connector",
+    "config": {
+      "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+      "database.hostname": "host.docker.internal",
+      "database.port": "3326",
+      "database.user": "root",
+      "database.password": "root",
+      "database.server.id": "184054",
+      "database.include.list": "haulla,payment,tycoon,hubspot",
+      "table.include.list": "haulla.ddd_event,payment.ddd_event,tycoon.ddd_event,hubspot.event",
+      "topic.prefix": "debezium",
+      "include.schema.changes": false,
+      "schema.history.internal.kafka.topic": "schemahistory",
+      "schema.history.internal.kafka.bootstrap.servers": "kafka-broker:29092",
+      "snapshot.mode": "schema_only",
+      "snapshot.locking.mode": "none",
+      "message.max.bytes": "10485760",
+      "replica.fetch.max.bytes": "10485760",
+      "database.connectionTimeZone": "Asia/Seoul",
+      "retention.ms": "259200000",
+      "segment.ms": "259200000",
+       "topic.creation.enable": "true",
+      "topic.creation.default.replication.factor": "1",
+      "topic.creation.default.partitions": "1",
+  
+      "transforms": "dropupdates,dropdeletes",
+      
+      "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+      "transforms.route.regex": "([^.]+)\\.([^.]+)\\.([^.]+)",
+      "transforms.route.replacement": "debezium.haulla.$3",
+  
+      "transforms.dropupdates.type": "io.debezium.transforms.Filter",
+      "transforms.dropupdates.condition": "value.op == 'u'",
+      "transforms.dropupdates.skip.on.failure": "true",
+      
+      "transforms.dropdeletes.type": "org.apache.kafka.connect.transforms.Filter",
+      "transforms.dropdeletes.condition": "value.op == 'd'",
+      "transforms.dropdeletes.skip.on.failure": "true"
+    }
+  }
