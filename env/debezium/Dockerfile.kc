@@ -1,0 +1,22 @@
+# Base image
+FROM confluentinc/cp-kafka-connect:7.6.1
+
+USER root
+
+RUN confluent-hub install --no-prompt debezium/debezium-connector-mysql:2.2.1
+
+COPY kafka-connects/ /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/*.sh
+
+EXPOSE 8083
+
+# Use the default entrypoint
+# ENTRYPOINT ["/etc/confluent/docker/run"]
+ENTRYPOINT ["/usr/local/bin/start-and-setup.sh"]
+
+
+
+# Start Kafka Connect and then run the connector setup script
+# CMD ["/usr/local/bin/setup-connect.sh"]
+
