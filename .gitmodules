@@ -1,0 +1,3 @@
+[submodule "projects/kafka-sink-connector"]
+	path = projects/kafka-sink-connector
+	url = git@github.com:titaniper/kafka-sink-connector.git
