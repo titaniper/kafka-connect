@@ -4,3 +4,6 @@
 [submodule "projects/kafka-source-connector"]
 	path = projects/kafka-source-connector
 	url = git@github.com:titaniper/kafka-source-connector.git
+[submodule "projects/kafka-connector-developent-kit"]
+	path = projects/kafka-connector-developent-kit
+	url = git@github.com:titaniper/kafka-connector-developent-kit.git
