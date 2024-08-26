@@ -1,0 +1,14 @@
+
+# Binlog 활성화 확인
+
+```
+SHOW MASTER STATUS;
+
+SHOW VARIABLES LIKE 'log_bin';
+
+
+SHOW VARIABLES LIKE 'log_bin_basename';
+
+GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO 'root'@'%';
+FLUSH PRIVILEGES;
+```
